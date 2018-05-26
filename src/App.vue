@@ -7,10 +7,14 @@
         {{item.label}}
       </li>
     </ul>
+    <button @click="deleteData">DeleteAll</button>
   </div>
 </template>
 
 <script>
+import Store from './store' 
+console.log(Store.fetch());
+// console.log(Store);
 export default {
   /* 等价：
   data:function(){
@@ -18,15 +22,21 @@ export default {
       msg:"hello world!"
     }
   }
-
-
   */
   data(){
     return{
       title:"This is a todolist~",
-      items:[
-      ],
+      items:Store.fetch(),
       newItem:''
+    }
+  },
+  watch:{
+    items:{
+      handler:function(items){
+        // console.log(JSON.stringify(items))
+        Store.save(items)
+      },
+      deep:true
     }
   },
   methods:{
@@ -34,12 +44,14 @@ export default {
       item.isFinished = !item.isFinished;
     },
     addNew:function(){
-      // console.log(this.newItem);
       this.items.push({
         label:this.newItem,
         isFinished:false
       })
       this.newItem = ""
+    },
+    deleteData:function(){
+      Store.delete();
     }
   }
 }
