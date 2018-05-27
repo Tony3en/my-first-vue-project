@@ -10,9 +10,8 @@
     <button @click="deleteData">DeleteAll</button>
   </div>
 </template>
-
 <script>
-import Store from './store' 
+import Store from './store'
 console.log(Store.fetch());
 // console.log(Store);
 export default {
@@ -23,42 +22,42 @@ export default {
     }
   }
   */
-  data(){
-    return{
-      title:"This is a todolist~",
-      items:Store.fetch(),
-      newItem:''
+  data() {
+    return {
+      title: "This is a todolist~",
+      items: Store.fetch(),
+      newItem: ''
     }
   },
-  watch:{
-    items:{
-      handler:function(items){
+  watch: {
+    items: {
+      handler: function(items) {
         // console.log(JSON.stringify(items))
         Store.save(items)
       },
-      deep:true
+      deep: true
     }
   },
-  methods:{
-    toggleFinished:function(item){
+  methods: {
+    toggleFinished: function(item) {
       item.isFinished = !item.isFinished;
     },
-    addNew:function(){
+    addNew: function() {
       this.items.push({
-        label:this.newItem,
-        isFinished:false
+        label: this.newItem,
+        isFinished: false
       })
       this.newItem = ""
     },
-    deleteData:function(){
+    deleteData: function() {
       Store.delete();
     }
   }
 }
-</script>
 
+</script>
 <style>
-.finished{
+.finished {
   text-decoration: underline;
 }
 
@@ -70,4 +69,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

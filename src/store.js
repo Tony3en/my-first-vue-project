@@ -1,12 +1,12 @@
 const STORAGE_KEY = 'todos-vuejs'
 export default {
   fetch() {
-  	return JSON.parse(window.localStorage.getItem(STORAGE_KEY) ||'[]');
+    return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]');
   },
-  save(item){
-  	window.localStorage.setItem(STORAGE_KEY,JSON.stringify(item));
+  save(item) {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(item));
   },
-  delete(){
-  	window.localStorage.removeItem(STORAGE_KEY)
+  delete() {
+    window.localStorage.removeItem(STORAGE_KEY)
   }
 }
