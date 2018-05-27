@@ -12,7 +12,6 @@
 </template>
 <script>
 import Store from './store'
-console.log(Store.fetch());
 // console.log(Store);
 export default {
   /* 等价：
@@ -51,6 +50,7 @@ export default {
     },
     deleteData: function() {
       Store.delete();
+      this.items = [];
     }
   }
 }
