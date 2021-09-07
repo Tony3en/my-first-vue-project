@@ -2,7 +2,6 @@
 
 > this is my very first vue project
 
-
 > not my first...
 
 > add something for conflict
