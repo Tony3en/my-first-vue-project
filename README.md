@@ -2,6 +2,8 @@
 
 > this is my very first vue project
 
+> add something for conflict
+
 ## Build Setup
 
 ``` bash
